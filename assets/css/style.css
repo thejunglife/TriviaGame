@@ -8,4 +8,18 @@
 
 .gameMenu {
   text-align: center;
+  visibility: hidden;
+}
+
+.choice {
+  background-color: orangered;
+ display: inline-block;
+ width: 200px;
+ font-size: 20px;
+}
+
+.scoreTracker {
+  text-align: center;
+  font-size: 100px;
+  
 }
