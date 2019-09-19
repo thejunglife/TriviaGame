@@ -1,7 +1,7 @@
 // Trivia Game theme....... & questions
 // NBA Trivia
 
-const myQuestions = [
+let myQuestions = [
   {
     question: 'What NBA team has the most Championships?',
 
@@ -54,10 +54,47 @@ let wrong = 0;
 let question = '';
 let answer = '';
 let userGuess = '';
+let start = document.getElementById('startScreen');
+let gameScreen = document.getElementById('gameScreen')
+let questions = document.getElementById('questions')
+let choiceA = document.getElementById('choiceA')
+let choiceB = document.getElementById('choiceB')
+let choiceC = document.getElementById('choiceC')
+let choiceD = document.getElementById('choiceD')
+let countDown = document.getElementById('countDown')
+let nextQuestion = 0;
+let nextAnswer = 0;
+
+// let timer = 10;
+let count = 0
+let timeLeft = 11
+
+// begining screen that starts Trivia
+const gameStart = function () {
+  start.style.display = 'none';
+  startQuiz();
+}
+// button for gameStart
+start.addEventListener('click', gameStart)
+
+// takes us to questions page
+let startQuiz = function() {
+
+  let q = myQuestions[nextQuestion] 
+  timer()
+  questions.innerHTML = q.question;
+  choiceA.innerHTML = q.answers.a
+  choiceB.innerHTML = q.answers.b
+  choiceC.innerHTML = q.answers.c
+  choiceD.innerHTML = q.answers.d
+};
+// make a timer function
 
 
-// need a start button to start the quiz
-
-document.getElementById('startGame').addEventListener('click', function () {
-    console.log(ping)
-})
+let timer = function() {
+  let time = setInterval(function () {
+  timeLeft--
+  countDown.innerHTML = timeLeft
+  if (timeLeft <= 0) clearInterval(time);
+ }, 1000)
+}
