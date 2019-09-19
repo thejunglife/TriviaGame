@@ -32,7 +32,7 @@ let myQuestions = [
     choiceB: 0,
     choiceC: 87,
     choiceD: 3,
-    correctAnswer: 0
+    correctAnswer: 'b'
   }
 
 
@@ -78,6 +78,7 @@ gameScreen.style.visibility = 'visible';
   choiceB.innerHTML = q.choiceB
   choiceC.innerHTML = q.choiceC
   choiceD.innerHTML = q.choiceD
+ 
 };
 
 
@@ -104,15 +105,22 @@ let timer = function() {
 let checkAnswer = function (answer) {
   if (answer === myQuestions[nextQuestion].correctAnswer) {
     correct++
-    answerCorrect()
+   
+    // answerCorrect()
+    alert('correct!')
+    
+    
 
   } else {
-   answerWrong()
+  //  answerWrong()
+  alert('wrong!')
+    
   }
   count = 10;
   if(nextQuestion < lastQuestion) {
     nextQuestion++
     startQuiz()
+    
   } else {
     clearInterval(clock)
     scoreBoard()
@@ -135,6 +143,9 @@ let scoreBoard = function() {
   const scorePercent = Math.round(100 * correct/myQuestions.length)
   score.innerHTML = `Your Score ${scorePercent}%!`
 }
+
+
+
 
 
 
